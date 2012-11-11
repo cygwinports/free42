@@ -1,0 +1,35 @@
+NAME="free42"
+VERSION=1.4.75
+RELEASE=1
+CATEGORY="Math"
+SUMMARY="HP-42S calculator simulator"
+DESCRIPTION="Free42 is a re-implementation of the HP-42S calculator and the
+HP-82240 printer. It is a complete rewrite, not using any HP code, and it does
+not require an HP-42S ROM image."
+HOMEPAGE="http://thomasokken.com/free42/"
+SRC_URI="http://thomasokken.com/free42/download/free42.tgz"
+SRC_DIR=${NAME}
+PATCH_URI="01-sugar-exeext.patch"
+
+PKG_NAMES="free42 sugar-Free42"
+free42_CONTENTS="--exclude=sugar usr/"
+sugar_Free42_SUMMARY="${SUMMARY} for Sugar desktop"
+sugar_Free42_CONTENTS="usr/share/sugar/"
+
+src_compile() {
+	lndirs
+	cd ${B}/gtk
+	cygmake -j1 BCD_MATH=1 OLPC=1
+	rm -f shell_main.o
+	cygmake -j1 BCD_MATH=1
+}
+
+
+src_install() {
+	cd ${B}/gtk
+	dobin free42dec.exe
+	newicon icon.xpm free42.xpm
+	make_desktop_entry free42dec "Free42" free42 "Education;Math;GTK"
+	dodir /usr/share/sugar/activities
+	unzip -d ${D}/usr/share/sugar/activities Free42.xo
+}
