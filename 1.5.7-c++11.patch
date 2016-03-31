@@ -1,0 +1,11 @@
+--- origsrc/free42-nologo-1.5.7/common/core_display.cc	2016-02-28 13:14:15.000000000 -0600
++++ src/free42-nologo-1.5.7/common/core_display.cc	2016-03-29 14:07:36.836115300 -0500
+@@ -41,7 +41,7 @@
+ #endif
+ 
+ 
+-static char bigchars[130][5] =
++static unsigned char bigchars[130][5] =
+     {
+         { 0x08, 0x08, 0x2a, 0x08, 0x08 },
+         { 0x22, 0x14, 0x08, 0x14, 0x22 },

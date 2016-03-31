@@ -1,0 +1,20 @@
+--- origsrc/free42-nologo-1.5.7/gtk/shell_skin.cc	2016-02-28 13:14:13.000000000 -0600
++++ src/free42-nologo-1.5.7/gtk/shell_skin.cc	2016-03-29 14:33:44.895733500 -0500
+@@ -172,7 +172,7 @@ static int skin_open(const char *name, i
+     }
+ 
+     /* name did not match a built-in skin; look for file */
+-    snprintf(namebuf, 1024, "%s/%s.%s", free42dirname, name,
++    snprintf(namebuf, 1024, "%s/%s.%s", "/usr/share/free42", name,
+                                         open_layout ? "layout" : "gif");
+     external_file = fopen(namebuf, "r");
+     return external_file != NULL;
+@@ -237,7 +237,7 @@ void skin_menu_update(GtkWidget *w) {
+     for (i = 0; i < skin_count; i++)
+         addMenuItem(skin_menu, skin_name[i]);
+ 
+-    DIR *dir = opendir(free42dirname);
++    DIR *dir = opendir("/usr/share/free42");
+     if (dir == NULL)
+         return;
+ 
