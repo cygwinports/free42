@@ -1,5 +1,5 @@
 NAME="free42"
-VERSION=1.5.7
+VERSION=1.5.8f
 RELEASE=1
 CATEGORY="Math"
 SUMMARY="HP-42S calculator simulator"
@@ -7,7 +7,7 @@ DESCRIPTION="Free42 is a re-implementation of the HP-42S calculator and the
 HP-82240 printer. It is a complete rewrite, not using any HP code, and it does
 not require an HP-42S ROM image."
 HOMEPAGE="http://thomasokken.com/free42/"
-SRC_URI="http://thomasokken.com/free42/upstream/free42-nologo-${VERSION%[a-z]}.tgz"
+SRC_URI="http://thomasokken.com/free42/upstream/free42-nologo-${VERSION}.tgz"
 SRC_DIR="free42-nologo-${VERSION}"
 PATCH_URI="
 	1.5.7-c++11.patch
