@@ -1,5 +1,5 @@
 NAME="free42"
-VERSION=1.5.8f
+VERSION=1.5.12
 RELEASE=1
 CATEGORY="Math"
 SUMMARY="HP-42S calculator simulator"
@@ -11,7 +11,7 @@ SRC_URI="http://thomasokken.com/free42/upstream/free42-nologo-${VERSION}.tgz"
 SRC_DIR="free42-nologo-${VERSION}"
 PATCH_URI="
 	1.5.7-c++11.patch
-	1.5.7-debuginfo.patch
+	1.5.12-debuginfo.patch
 	1.5.7-system-skins.patch
 "
 
@@ -19,9 +19,8 @@ src_compile() {
 	lndirs
 
 	cd ${B}/gtk
-	rm -f bid_* *.a
 	ln -sf /usr/include/idfpml/*.h .
-	ln -sf /usr/lib/libbid111.a gcc111libbid-${ARCH}.a
+	ln -sf /usr/lib/libbid111.a gcc111libbid.a
 	cygmake -j1 BCD_MATH=1
 }
 

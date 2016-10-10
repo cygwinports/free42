@@ -1,0 +1,11 @@
+--- origsrc/free42-nologo-1.5.12/gtk/Makefile	2016-10-03 20:45:12.000000000 -0500
++++ src/free42-nologo-1.5.12/gtk/Makefile	2016-10-10 00:13:55.449234400 -0500
+@@ -15,7 +15,7 @@
+ # along with this program; if not, see http://www.gnu.org/licenses/.
+ ###############################################################################
+ 
+-CFLAGS = -MMD \
++CFLAGS += -MMD \
+ 	 -Wall \
+ 	 -Wno-parentheses \
+ 	 -Wno-write-strings \
